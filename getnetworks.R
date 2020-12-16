@@ -27,8 +27,9 @@ musers<-mongo('users',db='twitter',url = URI)
 mnetwork<-mongo('network',db='twitter',url = URI)
 
 while (TRUE){
-  userdt<-r$LPOP("users")
-  if (!is.null(userdt)){
+  
+  if (r$LLEN('users')>0){
+    userdt<-r$LPOP("users")
     userdt<-string_to_object(userdt)
     degrees<-userdt$degrees
     if(degrees==0) {
@@ -56,7 +57,6 @@ while (TRUE){
     followers[,follows:=usern]
     followerdt<-lapply(followers$user_id, function(x){getuser(x, musers)})
     mnetwork$insert(followers)
-    userdt<-r$LPOP("users")
   } else {Sys.sleep(60+sample(0:60,1))}
 }
 
