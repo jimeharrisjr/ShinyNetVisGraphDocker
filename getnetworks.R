@@ -29,6 +29,7 @@ mnetwork<-mongo('network',db='twitter',url = URI)
 while (TRUE){
   
   if (r$LLEN('users')>0){
+      message("Found an ID")
     userdt<-r$LPOP("users")
     userdt<-string_to_object(userdt)
     degrees<-userdt$degrees
