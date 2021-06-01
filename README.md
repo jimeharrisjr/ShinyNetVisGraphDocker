@@ -2,7 +2,7 @@
 This is  Docker implementation of the Shiny Network Visualization app:
 ( https://github.com/jimeharrisjr/ShinyNetVisGraph )
 The pre-built version for Raspberry Pi (ARM-32) is avilable on Docker.io
-`docker run -d --network local jimeharrisjr/pcapgraph`
+`docker run -d --network host jimeharrisjr/pcapgraph`
 Then navigate your browser to http://127.0.0.1:8080
 This repository can be cloned and altered to make your own custom verion.
 
