@@ -35,8 +35,8 @@ RUN git clone https://github.com/mfontanini/libtins.git \
 
 
 RUN apt-get -y install libcurl4-gnutls-dev
-RUN Rscript -e "install.packages(c('shiny','shinydashboard','visNetwork','data.table','igraph'), repo = '$CRAN')" 
-RUN Rscript -e "install.packages('remotes')"
+RUN Rscript -e "install.packages(c('remotes','shiny','shinydashboard','visNetwork','data.table','igraph'), repo = '$CRAN')" 
+
 RUN Rscript -e "remotes::install_github('https://github.com/jimeharrisjr/rtins')"
 
 ADD ShinyNetVisGraph /home/ShinyNetVisGraph
